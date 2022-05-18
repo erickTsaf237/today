@@ -1,11 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from "@nestjs/sequelize";
-import { Users } from "./users.model";
+import { User } from "./users.model";
+import { Address } from "../address/address.model";
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectModel(Users)
-    private userModel: typeof Users,
+    @InjectModel(User)
+    private userModel: typeof User,
   ) {}
+
+  findOne(email: string):Promise<User | undefined>{
+    return this.userModel.findOne({ include: [Address], where: { email }, })
+  }
 }

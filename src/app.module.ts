@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { SequelizeModule } from "@nestjs/sequelize";
-import { Users} from "./users/users.model"
+import { User} from "./users/users.model"
 import { AddressController } from './address/address.controller';
 import { AddressModule } from './address/address.module';
 import { Address } from "./address/address.model";
@@ -16,8 +16,9 @@ import { Address } from "./address/address.model";
     port: 3306,
     username: 'root',
     password: 'root',
-    database: 'test2',
-    models: [Users, Address],
+    database: 'test',
+    models: [User, Address],
+    synchronize: true,
     autoLoadModels: true,
   }), AddressModule,],
   controllers: [AppController, AddressController],

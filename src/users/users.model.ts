@@ -3,7 +3,7 @@ import { Address } from "../address/address.model";
 
 
 @Table
-export class Users extends Model{
+export class User extends Model{
 
   @Column
   email: string
@@ -29,18 +29,20 @@ export class Users extends Model{
 
   @ForeignKey(() => Address)
   @Column
-  homeAdresseId: Address
+  homeAdresseId:number
 
   @ForeignKey(() => Address)
   @Column
-  workAddressId: Address
+  workAddressId: number
+
+  @ForeignKey(() => Address)
+  @Column
+  CurrentLocation: number
 
   @Column
-  CurrentLocation
+  Costomer_note: string
 
-  @Column
-  Costomer_note
-
-  @BelongsTo(() => Address)
+  @BelongsTo(()=>Address)
   address: Address
+
 }

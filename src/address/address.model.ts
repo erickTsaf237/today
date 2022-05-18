@@ -1,4 +1,5 @@
-import { Column, Model, Table } from "sequelize-typescript";
+import { Column, HasMany, Model, Table } from "sequelize-typescript";
+import { User } from "../users/users.model";
 
 
 @Table
@@ -23,4 +24,7 @@ export class Address extends Model{
 
   @Column
   street: string
+
+  @HasMany(() => User)
+  user: User[]
 }
