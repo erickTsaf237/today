@@ -26,7 +26,7 @@ export class AddressService {
     let id = updatedAddress.id
     return this.addressModel.update(updatedAddress, {where:{id}})
       .then(result =>{
-        if (result instanceof Address)
+        if (result)
           return this.addressModel.findByPk(id)
         else
           return undefined

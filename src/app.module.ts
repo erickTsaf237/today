@@ -5,7 +5,6 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { SequelizeModule } from "@nestjs/sequelize";
 import { User} from "./users/users.model"
-import { AddressController } from './address/address.controller';
 import { AddressModule } from './address/address.module';
 import { Address } from "./address/address.model";
 
@@ -21,7 +20,7 @@ import { Address } from "./address/address.model";
     synchronize: true,
     autoLoadModels: true,
   }), AddressModule,],
-  controllers: [AppController, AddressController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
