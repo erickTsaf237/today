@@ -12,7 +12,7 @@ export class User extends Model{
   password: string
 
   @Column
-  username: string
+  username:string
 
   @Column
   firstName: string
